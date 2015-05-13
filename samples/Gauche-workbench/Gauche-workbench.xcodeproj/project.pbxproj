@@ -14,6 +14,11 @@
 		BA46D0531AFE3270008D8D60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA46D0521AFE3270008D8D60 /* Images.xcassets */; };
 		BA46D0561AFE3270008D8D60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA46D0541AFE3270008D8D60 /* LaunchScreen.xib */; };
 		BA46D0621AFE3270008D8D60 /* Gauche_workbenchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA46D0611AFE3270008D8D60 /* Gauche_workbenchTests.m */; };
+		BA46D06C1AFE3E5C008D8D60 /* Gauche-iOS-core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA46D06B1AFE3E5C008D8D60 /* Gauche-iOS-core.framework */; };
+		BA46D06E1AFF4BAF008D8D60 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA46D06D1AFF4BAF008D8D60 /* libz.dylib */; };
+		BA46D0701AFF4BC3008D8D60 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA46D06F1AFF4BC3008D8D60 /* libiconv.dylib */; };
+		BA46D0721AFF526D008D8D60 /* repl-server.scm in Resources */ = {isa = PBXBuildFile; fileRef = BA46D0711AFF526D008D8D60 /* repl-server.scm */; };
+		BA46D0741B00BEC5008D8D60 /* repl-server.c in Sources */ = {isa = PBXBuildFile; fileRef = BA46D0731B00BEC5008D8D60 /* repl-server.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		BA46D05B1AFE3270008D8D60 /* Gauche-workbenchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gauche-workbenchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA46D0601AFE3270008D8D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA46D0611AFE3270008D8D60 /* Gauche_workbenchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gauche_workbenchTests.m; sourceTree = "<group>"; };
+		BA46D06B1AFE3E5C008D8D60 /* Gauche-iOS-core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Gauche-iOS-core.framework"; path = "../../Gauche-iOS-core.framework"; sourceTree = "<group>"; };
+		BA46D06D1AFF4BAF008D8D60 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BA46D06F1AFF4BC3008D8D60 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		BA46D0711AFF526D008D8D60 /* repl-server.scm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "repl-server.scm"; sourceTree = "<group>"; };
+		BA46D0731B00BEC5008D8D60 /* repl-server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "repl-server.c"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA46D0701AFF4BC3008D8D60 /* libiconv.dylib in Frameworks */,
+				BA46D06E1AFF4BAF008D8D60 /* libz.dylib in Frameworks */,
+				BA46D06C1AFE3E5C008D8D60 /* Gauche-iOS-core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,9 @@
 		BA46D0391AFE3270008D8D60 = {
 			isa = PBXGroup;
 			children = (
+				BA46D06F1AFF4BC3008D8D60 /* libiconv.dylib */,
+				BA46D06D1AFF4BAF008D8D60 /* libz.dylib */,
+				BA46D06B1AFE3E5C008D8D60 /* Gauche-iOS-core.framework */,
 				BA46D0441AFE3270008D8D60 /* Gauche-workbench */,
 				BA46D05E1AFE3270008D8D60 /* Gauche-workbenchTests */,
 				BA46D0431AFE3270008D8D60 /* Products */,
@@ -81,6 +97,7 @@
 		BA46D0441AFE3270008D8D60 /* Gauche-workbench */ = {
 			isa = PBXGroup;
 			children = (
+				BA46D0731B00BEC5008D8D60 /* repl-server.c */,
 				BA46D0491AFE3270008D8D60 /* AppDelegate.h */,
 				BA46D04A1AFE3270008D8D60 /* AppDelegate.m */,
 				BA46D04C1AFE3270008D8D60 /* ViewController.h */,
@@ -89,6 +106,7 @@
 				BA46D0521AFE3270008D8D60 /* Images.xcassets */,
 				BA46D0541AFE3270008D8D60 /* LaunchScreen.xib */,
 				BA46D0451AFE3270008D8D60 /* Supporting Files */,
+				BA46D0711AFF526D008D8D60 /* repl-server.scm */,
 			);
 			path = "Gauche-workbench";
 			sourceTree = "<group>";
@@ -202,6 +220,7 @@
 				BA46D0511AFE3270008D8D60 /* Main.storyboard in Resources */,
 				BA46D0561AFE3270008D8D60 /* LaunchScreen.xib in Resources */,
 				BA46D0531AFE3270008D8D60 /* Images.xcassets in Resources */,
+				BA46D0721AFF526D008D8D60 /* repl-server.scm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA46D04E1AFE3270008D8D60 /* ViewController.m in Sources */,
+				BA46D0741B00BEC5008D8D60 /* repl-server.c in Sources */,
 				BA46D04B1AFE3270008D8D60 /* AppDelegate.m in Sources */,
 				BA46D0481AFE3270008D8D60 /* main.m in Sources */,
 			);
@@ -349,6 +369,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/shiro/src/Gauche-iOS",
+				);
 				INFOPLIST_FILE = "Gauche-workbench/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +383,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/shiro/src/Gauche-iOS",
+				);
 				INFOPLIST_FILE = "Gauche-workbench/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

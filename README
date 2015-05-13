@@ -1,0 +1,37 @@
+This is a collection of stuff to help building iOS app with Gauche.
+We're still in experimental stage.  Many desired features are missing.
+
+Contents:
+
+Gauche-iOS-core.framework/
+
+   A prebuilt framework, provided for the convenience.
+   To use it, add this to "Linked Frameworks and Libraries"
+   section of General tab in your XCode project.
+   You also need to add libiconv.dylib and libz.dylib.
+
+   This is occasionally updated, but if you need to rebuild
+   to catch up for Gauche HEAD, run "make core" in this directory,
+   which will clone Gauche repo and build the framework.
+   *You need Gauche HEAD installed on your Mac to rebuild the framework.*
+
+samples/
+
+   Some XCode projects to serve as samples.
+
+samples/Gauche-workbench
+
+   This builds a bare bone iOS App with Gauche REPL server open to
+   the network.  No UI.  You can evaluate Gauche expressions 
+   interactively on the actual device.
+   There's no security, so this is stricly for testing in your local
+   environment.
+   You need WiFi connection.
+
+   When invoked, it displays "connect X.X.X.X:YY for REPL".  You
+   can make a TCP connection to the displayed IP addr and port number,
+   e.g. using "telnet X.X.X.X YY".
+
+
+
+

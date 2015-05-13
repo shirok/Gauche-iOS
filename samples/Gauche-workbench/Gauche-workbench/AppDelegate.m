@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Gauche-iOS-core/gauche.h>
+#import <Gauche-iOS-core/gauche/static.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    SCM_INIT_STATIC();
     return YES;
 }
 
