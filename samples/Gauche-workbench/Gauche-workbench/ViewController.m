@@ -11,6 +11,7 @@
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 #import <net/if.h>
+#import <stdlib.h>
 
 extern ScmObj load_repl_server(void);
 
@@ -24,20 +25,24 @@ extern ScmObj load_repl_server(void);
     [super viewDidLoad];
     
     NSString *ipaddr = [self getAddressWithInterfacePrefix:@"en"];
-    int port = [self startServer];
+    int key = arc4random_uniform(1000000);
+    int port = [self startServerWithKey:key];
     
     CGRect screenBounds = [UIScreen mainScreen].bounds;
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, screenBounds.size.height/2 - 20.0f,
-                                                               screenBounds.size.width, 40.0f)];
-    label.font = [UIFont fontWithName:@"Helvetica" size:20.0f];
+    const CGFloat labelHeight = 100.0f;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, screenBounds.size.height/2 - labelHeight/2,
+                                                               screenBounds.size.width, labelHeight)];
+    label.font = [UIFont fontWithName:@"Helvetica" size:16.0f];
     label.textAlignment = NSTextAlignmentCenter;
-    label.adjustsFontSizeToFitWidth = TRUE;
+    label.numberOfLines = 0;
+    label.lineBreakMode = NSLineBreakByWordWrapping;
     if (!ipaddr) {
         label.text = @"Couldn't get local IP addr.";
     } else if (port == 0) {
         label.text = @"Couldn't start repl server.";
     } else {
-        label.text = [NSString stringWithFormat:@"Connect to %@:%d for REPL", ipaddr, port];
+        label.text = [NSString stringWithFormat:@"To get REPL, connect %@:%d, and enter key code %d",
+                      ipaddr, port, key];
     }
     [self.view addSubview:label];
 }
@@ -68,7 +73,7 @@ extern ScmObj load_repl_server(void);
     return r;
 }
 
-- (int)startServer
+- (int)startServerWithKey:(int)key
 {
     ScmObj r = load_repl_server();
     if (!SCM_TRUEP(r)) {
@@ -83,7 +88,7 @@ extern ScmObj load_repl_server(void);
     SCM_BIND_PROC(start_server_proc, "start-server", Scm_UserModule());
 
     ScmEvalPacket p;
-    if (Scm_Apply(start_server_proc, SCM_NIL, &p) < 0) {
+    if (Scm_Apply(start_server_proc, SCM_LIST1(SCM_MAKE_INT(key)), &p) < 0) {
         NSLog(@"(start-server) failed");
         return 0;
     } else {

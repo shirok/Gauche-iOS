@@ -8,12 +8,13 @@ Building frameworks:
 
   Gauche-iOS-core.framework
 
-    A Gauche engine packaged as a framework.
+    A Gauche engine packaged as a framework for iOS.
 
     You can build it by running "make core" in this directory.
-    It will clone Gauche repo and build the framework.
+    It will clone Gauche repo, build the framework, and put it
+    in this directory.
 
-    To use it, add this to "Linked Frameworks and Libraries"
+    To use it, add this framework to "Linked Frameworks and Libraries"
     section of General tab in your XCode project.
     You also need to add libiconv.dylib and libz.dylib.
 
@@ -33,10 +34,15 @@ Samples:
     environment.  Do not run this while you're outside of your lab.
     You need WiFi connection.
 
-    When invoked, it displays "connect X.X.X.X:YY for REPL".  You
-    can make a TCP connection to the displayed IP addr and port number,
-    e.g. using "telnet X.X.X.X YY".
+    When invoked, it displays "To get REPL, connect to X.X.X.X:YY,
+    and enter key code ZZZZZZ".  You can make a TCP connection to
+    the displayed IP addr and port number, e.g. using "telnet X.X.X.X YY".
+    It prompts you to enter the key code displayed on the screen
+    (a very simple security measure to avoid casual port scanners).
 
-
-
+    Note: If you evaluate (exit) in REPL prompt, it terminates the
+    app.  To exit REPL but keep the app running for the next connection,
+    just drop the connection from the client.  (With telnet, type "^]q".)
+    The current implementation intentionally does not handle multiple
+    connections simultaneously.
 
