@@ -22,6 +22,11 @@ Building frameworks:
     doesn't provide a way to control iOS components from Gauche.
     We're working on another framework that allows it.
 
+    NOTE: Currently, this framework is built without bitcode enabled;
+    If you use this framework on your project, you need to turn off
+    bitcode (In Built Settings > Built Options > Enable Bitcode) or
+    the linker fails.
+
 
 Samples:
 
